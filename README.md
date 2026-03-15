@@ -1,59 +1,109 @@
-# CalculadoraImc
+# Calculadora de IMC con Angular
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.2.
+## Descripción
 
-## Development server
+Este proyecto consiste en el desarrollo de una aplicación web utilizando Angular que permite calcular el Índice de Masa Corporal (IMC) de un usuario.
 
-To start a local development server, run:
+La aplicación solicita al usuario los siguientes datos:
 
-```bash
-ng serve
-```
+- Nombre
+- Sexo
+- Peso
+- Altura
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+A partir de estos datos se calcula el IMC utilizando la fórmula correspondiente y se muestra un mensaje indicando si el usuario se encuentra por debajo de su peso ideal, dentro de su peso ideal o por encima.
 
-## Code scaffolding
+Además, la aplicación guarda un historial con todos los cálculos realizados durante la sesión.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+---
 
-```bash
-ng generate component component-name
-```
+# Tecnologías utilizadas
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+El proyecto ha sido desarrollado utilizando:
 
-```bash
-ng generate --help
-```
+- Angular
+- TypeScript
+- HTML
+- CSS
 
-## Building
+---
 
-To build the project run:
+# Estructura del proyecto
 
-```bash
-ng build
-```
+La aplicación está organizada en varios componentes:
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## App Component
 
-## Running unit tests
+Es el componente principal de la aplicación.  
+Se encarga de almacenar el historial de resultados y de conectar los diferentes componentes.
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## ImcForm Component
 
-```bash
-ng test
-```
+Contiene el formulario donde el usuario introduce sus datos y calcula el IMC.
 
-## Running end-to-end tests
+Funcionalidades:
 
-For end-to-end (e2e) testing, run:
+- Introducir el nombre del usuario
+- Seleccionar el sexo
+- Ajustar peso y altura mediante botones
+- Calcular el IMC
+- Limpiar el formulario
 
-```bash
-ng e2e
-```
+## Historial Component
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Este componente muestra el historial de cálculos realizados durante la sesión.
 
-## Additional Resources
+Los resultados se muestran utilizando una lista generada dinámicamente.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+
+# Funcionalidades implementadas
+
+La aplicación permite:
+
+- Introducir el nombre del usuario
+- Seleccionar el sexo mediante botones radio
+- Ajustar el peso mediante botones de incremento y decremento
+- Ajustar la altura mediante botones de incremento y decremento
+- Calcular el IMC
+- Mostrar un mensaje personalizado según el resultado
+- Guardar todos los cálculos realizados en un historial
+- Limpiar el formulario con el botón "Borrar"
+
+---
+
+# Fórmula utilizada para el cálculo del IMC
+
+El Índice de Masa Corporal se calcula mediante la fórmula:
+
+IMC = peso / (altura en metros²)
+
+Donde:
+
+- El peso se introduce en kilogramos
+- La altura se introduce en centímetros y se convierte a metros para realizar el cálculo
+
+---
+
+# Características de Angular utilizadas
+
+## Componentes
+
+La aplicación se divide en varios componentes para mantener una estructura modular:
+
+- App Component
+- ImcForm Component
+- Historial Component
+
+---
+
+## Directivas de Angular
+
+### *ngIf
+
+Se utiliza para mostrar el resultado del IMC únicamente cuando se ha realizado el cálculo.
+
+Ejemplo:
+
+```html
+<div *ngIf="imc > 0">
