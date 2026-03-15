@@ -1,0 +1,98 @@
+<!-- Título del formulario -->
+<h2>Formulario IMC</h2>
+
+<!-- Campo para introducir el nombre -->
+
+<div>
+  <label>Nombre:</label>
+
+  <!-- ngModel conecta el input con la variable nombre -->
+  <input type="text" [(ngModel)]="nombre" placeholder="Introduce tu nombre">
+
+</div>
+
+
+<!-- Selección de sexo mediante botones radio -->
+<div>
+  <label>Sexo:</label>
+
+  <!-- Opción Hombre -->
+  <label>
+    <input 
+      type="radio"
+      name="sexo"
+      value="hombre"
+      [(ngModel)]="sexo"
+    >
+    Hombre
+  </label>
+
+  <!-- Opción Mujer -->
+  <label>
+    <input 
+      type="radio"
+      name="sexo"
+      value="mujer"
+      [(ngModel)]="sexo"
+    >
+    Mujer
+  </label>
+
+</div>
+
+
+<!-- Control de peso con botones para aumentar o disminuir -->
+<!-- Control de peso -->
+<div>
+  <label>Peso:</label>
+
+  <!-- Disminuye el peso -->
+  <button (click)="disminuirPeso()">-</button>
+
+  <!-- Mostramos el valor actual del peso -->
+  <span>{{ peso }}</span>
+
+  <!-- Aumenta el peso -->
+  <button (click)="aumentarPeso()">+</button>
+</div>
+
+<!-- Control de altura -->
+<div>
+  <label>Altura:</label>
+
+  <!-- Disminuye la altura -->
+  <button (click)="disminuirAltura()">-</button>
+
+  <!-- Mostramos el valor actual -->
+  <span>{{ altura }}</span>
+
+  <!-- Aumenta la altura -->
+  <button (click)="aumentarAltura()">+</button>
+</div>
+
+
+<!-- Botones de acción del formulario -->
+<div>
+
+  <!-- Botón para calcular el IMC -->
+  <button (click)="calcularIMC()">Calcular</button>
+
+
+  
+  <!-- Botón que limpia todos los datos del formulario -->
+<button (click)="borrarFormulario()">Borrar</button>
+
+
+  <!-- Mostramos el resultado solo si ya se calculó el IMC -->
+<div *ngIf="imc > 0">
+
+  <!-- Mostramos el valor del IMC con dos decimales -->
+  <p>Tu IMC es: {{ imc.toFixed(2) }}</p>
+
+  <!-- Mensaje personalizado -->
+  <p>{{ mensaje }}</p>
+
+</div>
+
+
+</div>

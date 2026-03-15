@@ -1,0 +1,51 @@
+/* Contenedor del formulario */
+
+:host {
+  display: block;
+  width: 350px;
+  margin: 30px auto;
+  padding: 25px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Espaciado entre bloques */
+
+div {
+  margin-bottom: 15px;
+}
+
+/* Inputs */
+
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* Botones */
+
+button {
+  padding: 6px 12px;
+  margin: 5px;
+  border: none;
+  border-radius: 6px;
+  background-color: #1976d2;
+  color: white;
+  cursor: pointer;
+}
+
+/* Hover botón */
+
+button:hover {
+  background-color: #0d47a1;
+}
+
+/* Botones + y - */
+
+span {
+  margin: 0 10px;
+  font-weight: bold;
+}
